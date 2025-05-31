@@ -36,8 +36,17 @@ It uses a simulated iterative approach with placeholder models.
     ```bash
     pip install -r requirements.txt
     ```
-4.  **Install Node.js and Mermaid CLI for Mermaid to PNG Conversion (Required):**
-    The application now uses `@mermaid-js/mermaid-cli` (command: `mmdc`) to convert Mermaid text to PNG images. You need to install Node.js and npm first, then install `mermaid-cli`.
+4.  **Install and Configure Ollama (Required for AI Model Interaction):**
+    This application uses the QWEN multimodal model (`qwen2.5vl:7b-q8_0`) served via Ollama.
+    *   **Install Ollama:** Follow the official instructions at [https://ollama.com/download](https://ollama.com/download) for your operating system (Ubuntu is the target server system).
+    *   **Pull the QWEN model:** After installing Ollama, run the following command in your terminal:
+        ```bash
+        ollama pull qwen2.5vl:7b-q8_0
+        ```
+    *   **Ensure Ollama is running:** The Ollama server typically runs automatically after installation. The application expects it to be available at `http://localhost:11434`. You can check its status or start it as per the Ollama documentation.
+
+5.  **Install Node.js and Mermaid CLI for Mermaid to PNG Conversion (Required):**
+    The application uses `@mermaid-js/mermaid-cli` (command: `mmdc`) to convert Mermaid text to PNG images. You need to install Node.js and npm first, then install `mermaid-cli`.
 
     **On Ubuntu:**
     ```bash
@@ -55,9 +64,9 @@ It uses a simulated iterative approach with placeholder models.
     # Verify mmdc installation
     mmdc --version
     ```
-    The `convert_mermaid_to_png` function in `app.py` has been updated to use `mmdc` via `subprocess`. Ensure it's in your system's PATH.
+    The `convert_mermaid_to_png` function in `app.py` uses `mmdc` via `subprocess`. Ensure it's in your system's PATH.
 
-5.  **Run the server:**
+6.  **Run the server:**
     ```bash
     python app.py
     ```
