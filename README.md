@@ -36,15 +36,26 @@ It uses a simulated iterative approach with placeholder models.
     ```bash
     pip install -r requirements.txt
     ```
-4.  **Mermaid to PNG Conversion (Future Real Implementation):**
-    The current version simulates Mermaid to PNG conversion. For a real implementation,
-    a tool like `mermaid-cli` (npm package: `@mermaid-js/mermaid-cli`) would be required.
-    You would typically install it globally or as a project dependency:
+4.  **Install Node.js and Mermaid CLI for Mermaid to PNG Conversion (Required):**
+    The application now uses `@mermaid-js/mermaid-cli` (command: `mmdc`) to convert Mermaid text to PNG images. You need to install Node.js and npm first, then install `mermaid-cli`.
+
+    **On Ubuntu:**
     ```bash
-    # Example: npm install -g @mermaid-js/mermaid-cli
+    # Install Node.js (e.g., LTS version, adjust as needed)
+    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+
+    # Verify Node.js and npm installation
+    node -v
+    npm -v
+
+    # Install mermaid-cli globally
+    sudo npm install -g @mermaid-js/mermaid-cli
+
+    # Verify mmdc installation
+    mmdc --version
     ```
-    The `convert_mermaid_to_png` function in `app.py` would then need to be updated
-    to use this tool (e.g., via `subprocess`).
+    The `convert_mermaid_to_png` function in `app.py` has been updated to use `mmdc` via `subprocess`. Ensure it's in your system's PATH.
 
 5.  **Run the server:**
     ```bash
