@@ -36,6 +36,7 @@ It uses a simulated iterative approach with placeholder models.
     ```bash
     pip install -r requirements.txt
     ```
+    This will install Flask, Pytest, and the `ollama` Python library which is used to interact with the Ollama service.
 4.  **Install and Configure Ollama (Required for AI Model Interaction):**
     This application uses the QWEN multimodal model (`qwen2.5vl:7b-q8_0`) served via Ollama.
     *   **Install Ollama:** Follow the official instructions at [https://ollama.com/download](https://ollama.com/download) for your operating system (Ubuntu is the target server system).
